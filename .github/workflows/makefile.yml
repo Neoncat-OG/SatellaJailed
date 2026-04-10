@@ -14,11 +14,15 @@ jobs:
       with:
         submodules: recursive
 
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '16.0'
+
     - uses: waruhachi/theos-action@v2.4.6
       with:
         theos-src: 'theos/theos'
         theos-branch: 'master'
-        sdks-src: 'theos/sdks'
+        sdks-src: 'Actionizer/apple-oses-sdks'
         sdks-branch: 'master'
         libgcuniversal: true
         libgcuniversal-src: 'MrGcGamer/LibGcUniversalDocumentation'
