@@ -39,11 +39,15 @@ jobs:
     - name: Install Jinx
       run: |
         ln -s /Users/runner/work/SatellaJailed/SatellaJailed/theos /Users/runner/theos
-        curl -L -o Jinx_Installer.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx1/Jinx_Installer.zip
+        curl -L -o Jinx_Installer.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx_Installer.zip
         unzip -q Jinx_Installer.zip -d Jinx_Installer
         cd Jinx_Installer/Jinx_Installer
         python3 install_jinx.py
 
+        curl -L -o Jinx-framework-ios.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx-framework-ios.zip
+        mkdir -p Tweak/Frameworks
+        unzip -q Jinx-framework-ios.zip -d Tweak/Frameworks/
+        
     - name: Build tweak
       run: |
         make clean package ROOTLESS=0
