@@ -1,6 +1,6 @@
 # Theos optimisations
 
-ARCHS = arm64
+ARCHS = arm64 arm64e
 
 ifeq ($(ROOTLESS),1)
 	TARGET = iphone:clang:latest:15.0
