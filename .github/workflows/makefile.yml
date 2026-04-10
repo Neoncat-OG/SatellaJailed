@@ -32,6 +32,7 @@ jobs:
         curl -L -o Jinx_Installer.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx_Installer.zip
         unzip -q Jinx_Installer.zip -d Jinx_Installer
         cd Jinx_Installer
+        ls -la
         python3 install_jinx.py
 
     - name: Build tweak
