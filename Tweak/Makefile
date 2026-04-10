@@ -19,7 +19,7 @@ LIBRARY_NAME = SatellaJailed
 $(LIBRARY_NAME)_SWIFTFLAGS += -I$(PWD)/Frameworks/Jinx
 $(LIBRARY_NAME)_LDFLAGS += -L$(PWD)/Frameworks/Jinx -lJinx
 
-$(LIBRARY_NAME)_FILES = Sources/load.s $(shell find Sources/$(LIBRARY_NAME) -name '*.swift') $(shell find Sources/Jinx -name '*.swift')
+$(LIBRARY_NAME)_FILES = Sources/load.s $(shell find Sources/$(LIBRARY_NAME) -name '*.swift') $(shell find $(PWD)/Sources/Jinx/ -name '*.swift')
 
 $(LIBRARY_NAME)_LDFLAGS += $(PWD)/Frameworks/Jinx/libJinx.a
 
