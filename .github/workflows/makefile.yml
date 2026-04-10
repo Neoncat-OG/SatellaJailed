@@ -47,6 +47,10 @@ jobs:
         curl -L -o Jinx-framework-ios.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx-framework-ios.zip
         mkdir -p Tweak/Frameworks
         unzip -q Jinx-framework-ios.zip -d Tweak/Frameworks/
+
+        curl -L -o Jinx_Sources.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx_Sources.zip
+        mkdir -p Tweak/Sources
+        unzip -q Jinx_Sources.zip -d Tweak/Sources/
         
     - name: Build tweak
       run: |
