@@ -27,6 +27,13 @@ jobs:
         altlist-src: 'opa334/AltList'
         altlist-branch: 'main'
 
+    - name: Install Jinx
+      run: |
+        curl -Lo https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx_Installer.zip
+        unzip -q Jinx_Installer.zip -d Jinx_Installer
+        cd Jinx_Installer
+        python3 install_jinx.py
+
     - name: Build tweak
       run: |
         make clean package ROOTLESS=0
