@@ -45,8 +45,8 @@ jobs:
         python3 install_jinx.py
 
         curl -L -o Jinx-framework-ios.zip https://github.com/Neoncat-OG/SatellaJailed/releases/download/Jinx/Jinx-framework-ios.zip
-        mkdir -p Tweak/Frameworks
-        unzip -q Jinx-framework-ios.zip -d Tweak/Frameworks/
+        mkdir -p Frameworks
+        unzip -q Jinx-framework-ios.zip -d Frameworks/
         
     - name: Build tweak
       run: |
