@@ -11,26 +11,17 @@ endif
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 
-# Make Jinx work from SPM
-
-♎ = $(HOME)/Library/Developer/Xcode/DerivedData
-♍ = $(shell find $(♎) -maxdepth 1 -type d -name "Tweak-*" -exec ls -td {} + | head -n 1)
-♌ = /SourcePackages/checkouts/Jinx/Sources/Jinx
-♏ = $(♍)$(♌)
 
 # Define included files, imported frameworks, etc.
 
 LIBRARY_NAME = SatellaJailed
-$(LIBRARY_NAME)_FILES = Sources/load.s $(shell find Sources/$(LIBRARY_NAME) -name '*.swift') $(shell find $(♏) -name '*.swift')
 
+$(LIBRARY_NAME)_SWIFTFLAGS += -I$(PWD)/Frameworks/Jinx
+$(LIBRARY_NAME)_LDFLAGS += -L$(PWD)/Frameworks/Jinx -lJinx
 
+$(LIBRARY_NAME)_FILES = Sources/load.s $(shell find Sources/$(LIBRARY_NAME) -name '*.swift') $(shell find Sources/Jinx -name '*.swift')
 
-# Jinx paths for linking
-
-$(LIBRARY_NAME)_OBJ_FILES += $(THEOS_PROJECT_DIR)/Frameworks/Jinx/libJinx.a
-$(LIBRARY_NAME)_LDFLAGS += -L$(THEOS_PROJECT_DIR)/Frameworks/Jinx
-$(LIBRARY_NAME)_SWIFTFLAGS += -I$(THEOS_PROJECT_DIR)/Frameworks/Jinx
-
+$(LIBRARY_NAME)_LDFLAGS += $(PWD)/Frameworks/Jinx/libJinx.a
 
 # Theos makefiles to include
 
