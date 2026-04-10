@@ -1,0 +1,38 @@
+name: Build SatellaJailed
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "emt" ]
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - uses: waruhachi/theos-action@v2.4.6
+      with:
+        theos-src: 'theos/theos'
+        theos-branch: 'master'
+        sdks-src: 'theos/sdks'
+        sdks-branch: 'master'
+        libgcuniversal: true
+        libgcuniversal-src: 'MrGcGamer/LibGcUniversalDocumentation'
+        libgcuniversal-branch: 'master'
+        altlist: false
+        altlist-src: 'opa334/AltList'
+        altlist-branch: 'main'
+
+    - name: Build tweak
+      run: |
+        make clean package ROOTLESS=0
+
+    - name: Upload package
+      uses: actions/upload-artifact@v4
+      with:
+        name: satella-deb
+        path: packages/*.deb
