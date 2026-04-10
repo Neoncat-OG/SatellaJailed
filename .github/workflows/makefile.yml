@@ -22,7 +22,7 @@ jobs:
       with:
         theos-src: 'theos/theos'
         theos-branch: 'master'
-        sdks-src: 'Actionizer/apple-oses-sdks'
+        sdks-src: 'theos/sdks'
         sdks-branch: 'master'
         libgcuniversal: true
         libgcuniversal-src: 'MrGcGamer/LibGcUniversalDocumentation'
@@ -30,6 +30,11 @@ jobs:
         altlist: false
         altlist-src: 'opa334/AltList'
         altlist-branch: 'main'
+
+    - name: Install ios18 patched SDK
+      run: |
+        curl -L -o iPhoneOS18.0.sdk.zip https://github.com/xybp888/iOS-SDKs/releases/download/iOS18.0-SDKs/iPhoneOS18.0.sdk.zip
+        unzip -q iPhoneOS18.0.sdk.zip -d /Users/runner/work/SatellaJailed/SatellaJailed/theos/sdks/
 
     - name: Install Jinx
       run: |
