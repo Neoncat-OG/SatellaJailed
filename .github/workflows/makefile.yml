@@ -61,10 +61,11 @@ jobs:
 
     - name: Extract Dylib
       run: |
-        ar -x your_tweak_package.deb
+        cd packages
+        ar -x ./lilliana.satellajailed_0.0.1_iphoneos-arm.deb
         DATA_ARCHIVE=$(ls data.tar*)
         tar -xf "$DATA_ARCHIVE"
-        find . -name "*.dylib" -exec cp -f {} ./Packages/ \;
+        find . -name "*.dylib" -exec cp -f {} ../packages/ \;
 
     - name: Upload package
       uses: actions/upload-artifact@v4
