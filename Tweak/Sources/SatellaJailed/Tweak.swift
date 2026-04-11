@@ -7,16 +7,16 @@ struct Tweak {
         DelegateHook().hook()
         TransactionHook().hook()
         
-        if Preferences.isPriceZero { ProductHook().hook() }
-        if Preferences.isObserver { ObserverHook().hook() }
-        if Preferences.isStealth { DyldHook().hook() }
+        /*if Preferences.isPriceZero { */ProductHook().hook()// }
+        /*if Preferences.isObserver { */ObserverHook().hook()// }
+        // if Preferences.isStealth { DyldHook().hook() }
         
-        if Preferences.isReceipt {
-            ReceiptHook().hook()
-            URLHook().hook()
-        }
+        //if Preferences.isReceipt {
+        /*    */ReceiptHook().hook()
+        /*    */URLHook().hook()
+        //}
         
-        if #available(iOS 15, *) {
+        /*if #available(iOS 15, *) {
             if Preferences.isGesture {
                 WindowHook().hook()
             }
@@ -29,7 +29,7 @@ struct Tweak {
                 let rootVC: UIViewController? = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
                 rootVC?.add(SatellaController.shared)
             }
-        }
+        }*/
     }
 }
 
